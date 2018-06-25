@@ -1,11 +1,8 @@
-#Freestyle Project: Recipes App
-#Noemi Higashi
 
 import json
 import os
 import requests
 
-api_key = (os.environ['MASH_KEY'])
 
 print ("""
 
@@ -25,7 +22,6 @@ Let's get it started!
 
 ingredients = input ("Type the ingredients you want to use: ")
 
-#Validating input
 try:
     float(ingredients)
     quit ("Ops...  Numbers are not valid. Please try again.")
@@ -33,9 +29,10 @@ except ValueError as e:
     pass
 
 
-#Requesting Search By Ingredients
 print ("Searching for recipes...")
 print ("----------------------")
+
+api_key = (os.environ['MASH_KEY'])
 
 request_url_search = f"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?ingredients={ingredients}&number=5&ranking=1"
 headers_search= {"X-Mashape-Key":api_key,
@@ -60,8 +57,6 @@ for p in response_body:
     print ("----------------------")
     recipes_list.append([p["id"],p["title"]])
 
-
-#Getting user input for recipe
 chosen_recipe = input ("Which recipe would you like to cook today? Plese, type the item number: ")
 
 if int(chosen_recipe) > 5:
@@ -79,7 +74,7 @@ print ("*** "+ str.upper(chosen_recipe_name)+ " ***")
 
 
 
-#Requesting Ingredients and Prep Time
+#Getting Ingredients and Prep Time
 request_url_ingredients = f"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{chosen_id}/information"
 headers_recipe= {"X-Mashape-Key":api_key,
 "X-Mashape-Host": "spoonacular-recipe-food-nutrition-v1.p.mashape.com"}
@@ -105,7 +100,7 @@ for d in response_body_ingredients["extendedIngredients"]:
 
 
 
-#Requesting recipe detailed instructions
+#Getting instructions
 request_url_recipe = f"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{chosen_id}/analyzedInstructions?stepBreakdown=true"
 headers_recipe= {"X-Mashape-Key":api_key,
 "X-Mashape-Host": "spoonacular-recipe-food-nutrition-v1.p.mashape.com"}
@@ -133,7 +128,6 @@ def steps (list):
 steps (response_body_recipe)
 
 
-#Writing the Cookbook
 def write_products_to_file(ingredients, instructions):
     filepath = os.path.join(os.path.dirname(__file__),"..","db","recipes-list.txt")
     print(f"ADDING THIS RECIPE TO FILE: '{filepath}' ")
@@ -151,8 +145,8 @@ def write_products_to_file(ingredients, instructions):
             x=x+1
             File_object.write("(Part " + str(x) + ") " + str(p["name"]) + "\n")
             for s in p["steps"]:
-                File_object.write (str(s["number"]) + " - " + str(s["step"]) + "\n")
-        File_object.write("================================ \n" + "\n"+ "\n")
+                File_object.write (str(s["number"]) +" - " + str(s["step"]) + "\n")
+        File_object.write("================================ \n \n")
 
 cookbook = input("Would you like to add this recipe to your Personal Cookbook file? (y/n): ")
 
