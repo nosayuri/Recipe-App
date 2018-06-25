@@ -21,11 +21,11 @@ The Recipes App:
 To open the Recipes App, navigate from the root folder to the recipes-app folder and run the following:
 
 ```sh
-python recipes-app.py
+python recipes_app.py
 ```
 To open the Cookbook, open the db folder and run the txt file with your text editor:
 ```sh
-start winword recipes-list.txt
+start winword recipes_list.txt
 ```
 
 ## License
