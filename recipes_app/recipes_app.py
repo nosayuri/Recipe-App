@@ -83,7 +83,7 @@ def choosing_recipe(chosen_recipe):
 
 
 
-def requesting_ingredients:
+def requesting_ingredients():
     #Requesting Ingredients and Prep Time
     request_url_ingredients = f"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{chosen_id}/information"
     headers_recipe= {"X-Mashape-Key":api_key,
