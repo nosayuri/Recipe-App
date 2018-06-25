@@ -18,7 +18,7 @@ The Recipes App:
 3. Create an environment variable named "MASH_KEY" to locally store your API key
 
 ## Usage
-To open the Recipes App, navigate from the root folder to the app folder and run the following:
+To open the Recipes App, navigate from the root folder to the recipes-app folder and run the following:
 
 ```sh
 python recipes-app.py
