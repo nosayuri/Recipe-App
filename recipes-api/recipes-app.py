@@ -2,7 +2,7 @@
 import json
 import os
 import requests
-import pdb
+
 
 print ("""
 
@@ -21,6 +21,13 @@ Let's get it started!
 """)
 
 ingredients = input ("Type the ingredients you want to use: ")
+
+try:
+    float(ingredients)
+    quit ("Ops...  Numbers are not valid. Please try again.")
+except ValueError as e:
+    pass
+
 
 print ("Searching for recipes...")
 print ("----------------------")
@@ -51,6 +58,9 @@ for p in response_body:
     recipes_list.append([p["id"],p["title"]])
 
 chosen_recipe = input ("Which recipe would you like to cook today? Plese, type the item number: ")
+
+if int(chosen_recipe) > 5:
+    quit ("Ops...  This recipe number is not valid. Please try again.")
 
 chosen_recipe = int(chosen_recipe) - 1
 chosen_recipe_item = recipes_list[int(chosen_recipe)]
