@@ -1,6 +1,5 @@
 #Get Analyzed Recipe Instructions
-
-[
+instructions_list = [
   {
     "name": "",
     "steps": [
@@ -65,7 +64,7 @@
           {
             "id": 404783,
             "name": "bowl",
-            "image": null
+            "image": "null"
           }
         ]
       },
@@ -303,3 +302,5 @@
     ]
   }
 ]
+
+print (instructions_list["name"])

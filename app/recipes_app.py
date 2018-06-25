@@ -136,7 +136,7 @@ steps (response_body_recipe)
 
 #Writing the Cookbook
 def write_products_to_file(ingredients, instructions):
-    filepath = os.path.join(os.path.dirname(__file__),"..","db","recipes-list.txt")
+    filepath = os.path.join(os.path.dirname(__file__),"..","db","recipes_list.txt")
     print(f"ADDING THIS RECIPE TO FILE: '{filepath}' ")
     response_txt = str(list)
     with open(filepath, "a") as File_object:
