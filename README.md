@@ -2,11 +2,11 @@
 
 
 ## Recipes App
-This app was designed to help users to make delicious food with ingredients that they already at home.
+This app was designed to help users to make delicious food with ingredients they already have at home.
 The Recipes App:
 1. Lists famous recipes that optimize the usage of the available ingredients
-2. Provides a full list of ingredients and the instructions
-3. Creates a personal Cookbook with the favorite recipes
+2. Provides a full list of ingredients and instructions
+3. Creates a personal Cookbook with favorite recipes
 
 ## Requirements
 1. This app requires Python3 to run
